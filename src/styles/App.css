@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url(../images/Background.jpg);
+  color: #fff;
+}
+
+.CardContainer ul {
+  display: grid;
+  grid-template-columns: repeat(6, 12%);
+  gap: 3rem;
+  justify-content: center;
+  margin:  0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.Card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #171717;
+  color: #49d6b9;
+  padding: 0 1rem 1rem 1rem;
+  border-radius: 5px;
+}
+
+.Card img {
+  max-width: 100%;
+}
+
+.Card:hover {
+  box-shadow: 5px 5px #49d6b9, -5px -5px #49d6b9;
+}
+
+.ScoreBoard {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3rem 2rem 2rem;
+  align-items: center;
+  box-sizing: border-box;
+}
