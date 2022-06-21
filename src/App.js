@@ -1,7 +1,11 @@
+import { ScoreBoard } from "./components/ScoreBoard";
+import { CardContainer } from "./components/CardContainer";
+
 function App() {
   return (
     <div className="App">
-      Connected!
+      <ScoreBoard />
+      <CardContainer />
     </div>
   );
 }
