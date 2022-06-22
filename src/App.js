@@ -1,7 +1,7 @@
 import { ScoreBoard } from "./components/ScoreBoard";
 import { CardContainer } from "./components/CardContainer";
 import "./styles/App.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function App() {
   const[clicked, setClicked] = useState([]);
