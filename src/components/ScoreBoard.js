@@ -11,7 +11,7 @@ const ScoreBoard = (props) => {
 
       <div>
         <p>Score: {props.score}</p>
-        <p>Best Score: {0}</p>
+        <p>Best Score: {props.bestScore}</p>
         </div>
     </div>
   )

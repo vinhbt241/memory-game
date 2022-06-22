@@ -1,9 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "./Card";
 
-import harry from "../images/Harry Dubois.webp";
-import kim from "../images/Kim Kitsuragi.webp";
-import soona from "../images/Soona.webp";
 import andre from "../images/Andre.webp";
 import cuno from "../images/Cuno.webp";
 import eggHead from "../images/Egghead.webp";
@@ -16,16 +13,8 @@ import titus from "../images/Titus.webp";
 import acele from "../images/Acele.webp";
 import annete from "../images/Annete.webp";
 import cindy from "../images/Cindy.webp";
-import crypto from "../images/Crypto.webp";
-import deserter from "../images/Deserter.webp";
-import diceMaker from "../images/Dice Maker.webp";
-import gardener from "../images/Gardener.webp";
-import lena from "../images/Lena.webp";
 
 const characters = [
-  {name: "Harry Dubois", img: harry},
-  {name: "Kim Kitsuragi", img: kim},
-  {name: "Soona", img: soona},
   {name: "Andre", img: andre},
   {name: "Cuno", img: cuno},
   {name: "Egg Head", img: eggHead},
@@ -37,27 +26,39 @@ const characters = [
   {name: "Titus", img: titus},
   {name: "Acele", img: acele},
   {name: "Annete", img: annete},
-  {name: "Cindy", img: cindy},
-  {name: "Crypto", img: crypto},
-  {name: "Deserter", img: deserter},
-  {name: "Dice Maker", img: diceMaker},
-  {name: "Gardener", img: gardener},
-  {name: "Lena", img: lena}
+  {name: "Cindy", img: cindy}
 ]
 
 const CardContainer = (props) => {
+  const[cards, setCards] = useState(characters.slice());
 
-  const characterCards = characters.slice(3, 15).map(character => {
+  const shuffleArray = (array) => {
+    for(let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+
+    return array;
+  }
+
+  const handleClick = (name) => {
+    setCards(shuffleArray(cards.slice()));
+    props.processClick(name)
+  }
+
+  const cardList = cards.map(character => {
     return(
-      <li key={character.name}>
-        <Card name={character.name} img={character.img} />
-      </li>
+      <Card 
+      key={character.name}
+      name={character.name} 
+      img={character.img} 
+      onClick={handleClick}/>
     )
   })
 
   return (
     <div className="CardContainer">
-      <ul>{characterCards}</ul>
+      {cardList}
     </div>
   )
 }
